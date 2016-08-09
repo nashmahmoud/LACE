@@ -172,10 +172,17 @@ namespace LACE
         private void btnTrackWord_Click(object sender, EventArgs e)
         {
 
-            if (listView1.SelectedItems.Count == 0)
-                analyzeWordEvolution(txtFilter.Text);
+            if (listView1.SelectedItems.Count == 0 && txtFilter.Text == string.Empty)
+            {
+                MessageBox.Show("Please select a word");
+            }
             else
-                analyzeWordEvolution(listView1.SelectedItems[0].Text);
+            {
+                if (listView1.SelectedItems.Count == 0)
+                    analyzeWordEvolution(txtFilter.Text);
+                else
+                    analyzeWordEvolution(listView1.SelectedItems[0].Text);
+            }
         }
 
         private void analyzeWordEvolution(string word)
